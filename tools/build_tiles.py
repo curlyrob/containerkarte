@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Zerlegt alle Wertstoffcontainer (amenity=recycling) aus einem OSM-Export in kleine Kacheln.
+"""Zerlegt alle Wertstoffcontainer und Abfallannahmestellen (amenity=recycling|waste_transfer_station) aus einem OSM-Export in kleine Kacheln.
 
 Aufruf: build_tiles.py <recycling.geojsonseq> <gebiet.poly> <ausgabeordner>
 
@@ -20,7 +20,7 @@ from datetime import datetime, timezone
 TILE = 0.1
 KEEP_TAGS = {
     "name", "operator", "opening_hours", "recycling_type", "description", "note",
-    "addr:street", "addr:housenumber", "addr:city", "location", "access",
+    "addr:street", "addr:housenumber", "addr:city", "location", "access", "amenity",
 }
 
 
@@ -112,7 +112,7 @@ def main():
                 continue
             feature = json.loads(line)
             props = feature.get("properties") or {}
-            if props.get("amenity") != "recycling":
+            if props.get("amenity") not in ("recycling", "waste_transfer_station"):
                 continue  # z. B. mitexportierte Knoten von Container-Flächen
             osm_id = f'{props.get("@type", "node")}/{props.get("@id")}'
             if osm_id in seen:

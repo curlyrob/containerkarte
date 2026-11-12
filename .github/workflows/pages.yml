@@ -36,7 +36,7 @@ jobs:
 
       - name: Wertstoffcontainer herausfiltern
         run: |
-          osmium tags-filter germany.osm.pbf nwr/amenity=recycling -o recycling.osm.pbf
+          osmium tags-filter germany.osm.pbf nwr/amenity=recycling,waste_transfer_station -o recycling.osm.pbf
           osmium export recycling.osm.pbf -f geojsonseq -a type,id \
             --geometry-types=point,linestring,polygon -o recycling.geojsonseq
 
