@@ -52,11 +52,20 @@
       Liegt der Kartenausschnitt um deinen Standort, lässt er Rückschlüsse auf deine ungefähre Umgebung zu – nicht aber auf deine
       genaue Position.</p>
 
-    <h3>Container-Standorte (Overpass-API)</h3>
-    <p>Die Standorte werden aus OpenStreetMap über die Overpass-API abgefragt, in erster Linie bei
-      <a href="https://overpass-api.de/">overpass-api.de</a> (betrieben vom FOSSGIS e.&nbsp;V., Deutschland). Ist dieser Server
-      nicht erreichbar, fragt die App ersatzweise bei <a href="https://private.coffee/">overpass.private.coffee</a>
-      (Private.coffee, Österreich) an.</p>
+    <h3>Container-Standorte (GitHub Pages)</h3>
+    <p>Die Standorte stammen aus OpenStreetMap. Sie werden wöchentlich automatisch aus einem Deutschland-Auszug
+      (bereitgestellt von der Geofabrik GmbH) herausgefiltert und als kleine Dateien auf dieser Website abgelegt. Die App lädt
+      die Dateien für den angezeigten Kartenausschnitt von <strong>curlyrob.github.io</strong>. Diese Website wird über
+      GitHub Pages betrieben, einen Dienst der GitHub, Inc. (Microsoft, USA). GitHub ist nach dem EU-US Data Privacy
+      Framework zertifiziert; es gilt die
+      <a href="https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement">Datenschutzerklärung von GitHub</a>.
+      GitHub verarbeitet dabei deine IP-Adresse, um die Dateien auszuliefern und den Dienst abzusichern.</p>
+
+    <h3>Ersatz: Overpass-API</h3>
+    <p>Nur wenn ein Kartenausschnitt außerhalb Deutschlands liegt oder die Dateien gerade nicht erreichbar sind, fragt die App
+      die Standorte direkt über die Overpass-API ab, in erster Linie bei
+      <a href="https://overpass-api.de/">overpass-api.de</a> (betrieben vom FOSSGIS e.&nbsp;V., Deutschland), ersatzweise bei
+      <a href="https://private.coffee/">overpass.private.coffee</a> (Private.coffee, Österreich).</p>
 
     <h3>Kartenbilder</h3>
     <p>In der Standardansicht lädt die App Kartenbilder von <strong>tile.openstreetmap.org</strong>, betrieben von der
