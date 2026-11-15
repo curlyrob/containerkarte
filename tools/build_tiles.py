@@ -123,6 +123,10 @@ def main():
             seen.add(osm_id)
             tags = {k: v for k, v in props.items()
                     if k in KEEP_TAGS or (k.startswith("recycling:") and v == "yes")}
+            if tags.get("amenity") == "waste_transfer_station":
+                # App 1.0 kennt keine Abfallannahmestellen und setzt amenity pauschal auf "recycling";
+                # mit recycling_type=centre zeigt sie sie wenigstens als Wertstoffhof an.
+                tags.setdefault("recycling_type", "centre")
             lat, lon = point
             tiles.setdefault(tile_key(lat, lon), []).append([osm_id, round(lat, 6), round(lon, 6), tags])
             count += 1
